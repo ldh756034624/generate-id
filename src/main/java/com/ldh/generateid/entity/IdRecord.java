@@ -31,7 +31,7 @@ public class IdRecord {
     @Column(name = "sequence")
     private long sequence;
 
-    @Column(name = "date")
+    @Column(name = "date",columnDefinition = "timestamp(6) NOT NULL")
     private Date date;
 
 }

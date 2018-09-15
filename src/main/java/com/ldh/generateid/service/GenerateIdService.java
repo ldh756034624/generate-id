@@ -29,7 +29,7 @@ public class GenerateIdService implements Generate, Decode {
     /**
      * 机器编号
      */
-    private long machineId = 1;
+    private long machineId = 2;
     /**
      * 列号，递增
      */
@@ -38,6 +38,9 @@ public class GenerateIdService implements Generate, Decode {
     @Override
     public long nextId() {
         long now = System.currentTimeMillis() - relativeTime;
+        if(now <= 0){
+            throw new IllegalArgumentException("relativeTime 必须在当前时间之前");
+        }
         long id = version << idMata.getVersionLeft();
         now = now << idMata.getTimeStampLeft();
         long machine = machineId << idMata.getMachineLeft();

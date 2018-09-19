@@ -6,7 +6,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GenerateIdApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GenerateIdApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GenerateIdApplication.class, args);
+
+        Runtime runtime = Runtime.getRuntime();
+        runtime.addShutdownHook(new Thread(() -> {
+            System.out.println("系统关闭");
+        }));
+    }
 }

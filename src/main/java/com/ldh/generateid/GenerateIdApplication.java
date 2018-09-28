@@ -12,7 +12,6 @@ public class GenerateIdApplication {
         Runtime runtime = Runtime.getRuntime();
         runtime.addShutdownHook(new Thread(() -> {
             System.out.println("系统关闭");
-            System.out.println("hhhh");
         }));
     }
 }

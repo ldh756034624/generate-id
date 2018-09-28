@@ -17,7 +17,6 @@ import java.util.Date;
  * @create 2018-09-14:2:46 PM
  **/
 @RestController
-@Slf4j
 public class GenerateIdController {
 
     @Resource
@@ -37,7 +36,6 @@ public class GenerateIdController {
         long version = generateIdService.getVersion(id);
         IdRecord idRecord = new IdRecord(id,version,machine,sequence,date);
         idRecordRep.save(idRecord);
-        log.info(idRecord.toString());
         return idRecord;
 
     }
